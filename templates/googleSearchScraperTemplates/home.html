@@ -1,0 +1,38 @@
+{% extends "googleSearchScraperTemplates/navbar.html" %}
+{% block content %}
+    <div style="display:block">
+        <form method="post" name="searchForm" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <label>
+                Pretraži
+                <input type="text" name="search">
+            </label>
+            <input type="submit" value="Pretraži">
+        </form>
+        <table>
+            {% for result in results %}
+                <tr>
+                    <th>Naslov</th>
+                    <th>Link</th>
+                </tr>
+                <td>
+                    <p>{{ result.title }}</p>
+                </td>
+                <td>
+                    <a href={{ result.link }} target="_blank">{{ result.link }}</a>
+                </td>
+            {% endfor %}
+        </table>
+    </div>
+    <script>
+
+        function validateForm() {
+            var search = document.forms["searchForm"]["search"].value;
+            if (search === "") {
+                alert("Unesi pojam za pretraživanje");
+                return false;
+            }
+        }
+
+    </script>
+{% endblock content %}

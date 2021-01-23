@@ -1,0 +1,1 @@
+web: waitress-serve --port=$PORT mladen_google_search.wsgi:application
