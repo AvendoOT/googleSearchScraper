@@ -24,9 +24,6 @@ def getSearches(query):
         for e in fp.entries:
             link = e.links[4].href
             fetch_count = fetch_count + 1
-            page = urllib.request.urlopen(link)
-            soup = BeautifulSoup(page, from_encoding="utf-8")
-            content = soup.get_text()
-            blog_posts.append({'title': e.title, 'content': content, 'link': link})
+            blog_posts.append({'title': e.title, 'content': 'content', 'link': link})
 
     return blog_posts
