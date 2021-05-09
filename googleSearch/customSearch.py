@@ -33,7 +33,7 @@ def get_searches(query):
         full_link = 'http://www.likaplus.hr' + link
         results.append({'title': title, 'content': 'snippet', 'link': full_link})
 
-    #SLOBODARI.COM
+    # SLOBODARI.COM
     query = originalQuery.replace(' ', '+')
     query = query.replace('č', '%C4%8D')
     query = query.replace('ć', '%C4%87')
@@ -45,7 +45,6 @@ def get_searches(query):
         title = job_elem.find('a')['title']
         link = job_elem.find('a')['href']
         results.append({'title': title, 'content': 'snippet', 'link': link})
-
 
     # PROMISE.HR
     query = originalQuery.replace(' ', '+')
